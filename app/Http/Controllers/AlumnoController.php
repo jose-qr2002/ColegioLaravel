@@ -21,8 +21,7 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         Alumno::create($request->all());
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        return redirect()->route('alumnos.index');
     }
 
     public function edit($id)
@@ -40,16 +39,14 @@ class AlumnoController extends Controller
             'dni' => $request->dni,
         ]);
 
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        return redirect()->route('alumnos.index');
     }
 
     public function destroy($id) {
         $alumno = Alumno::findOrFail($id);
         $alumno->delete();
 
-        $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        return redirect()->route('alumnos.index');
     }
 
 }
