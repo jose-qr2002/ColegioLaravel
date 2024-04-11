@@ -1,33 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Alumnos</title>
+@extends('cabecera')
+
+@section('estilos')
     <style>
-    table {
-        width: 100%;
-        border: 1px solid #000;
-        border-spacing: 0;
-    }
-    th, td {
-        width: 20%;
-        text-align: left;
-        border: 1px solid #000;
-        padding: 0.3em;
-    }
+        table {
+            width: 100%;
+            border: 1px solid #000;
+            border-spacing: 0;
+        }
+        th, td {
+            width: 20%;
+            text-align: left;
+            border: 1px solid #000;
+            padding: 0.3em;
+        }
 
-    th {
-        background: #afadad;
-        font-weight: 700;
-    }
+        th {
+            background: #afadad;
+            font-weight: 700;
+        }
 
-    caption {
-        padding: 0.3em;
-        color: #fff;
-        background: #000;
-    }
+        caption {
+            padding: 0.3em;
+            color: #fff;
+            background: #000;
+        }
     </style>
-</head>
-<body>
+@endsection
+
+@section('contenido')
     <h1>Lista de Alumnos</h1>
     <table>
         <caption>
@@ -61,5 +61,4 @@
         @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection

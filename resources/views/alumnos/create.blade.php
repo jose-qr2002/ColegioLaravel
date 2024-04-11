@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Alumno</title>
-</head>
-<body>
+@extends('cabecera')
+
+@section('contenido')
     <h2 style="text-align: center;">Crear Alumno</h2>
     <form method="POST" action="{{ route('alumnos.store') }}" style="max-width: 400px; margin: 0 auto;">
         @csrf
@@ -16,5 +10,4 @@
 
         <button type="submit" style="padding: 10px; margin-top: 10px; font-size: 16px; background: #4770df; cursor: pointer; color: white; border: none;">Guardar</button>
     </form>
-</body>
-</html>
+@endsection
