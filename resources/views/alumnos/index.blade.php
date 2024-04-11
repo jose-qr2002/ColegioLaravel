@@ -2,7 +2,12 @@
 
 @section('estilos')
     <style>
-        
+        input[type="submit"] {
+            background: transparent;
+            border: 0;
+            color: white;
+            font-weight: 700;
+        }
     </style>
 @endsection
 
@@ -32,12 +37,18 @@
                     <td>{{ $alumno->nombres }}</td>
                     <td>{{ $alumno->apellidos }}</td>
                     <td style="">
-                        <a href="{{ route('alumnos.edit', [$alumno->id]) }}" style="text-decoration: none; font-weight: 700; color: #807b4e;">Editar</a>
-                        <form action="{{ route('alumnos.destroy', [$alumno->id]) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" style="text-decoration: none; font-weight: 700; color: #f04242;padding: 0; background: none; border:none;cursor: pointer;">Eliminar</button>
-                        </form>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-warning">
+                                <a href="{{ route('alumnos.edit', [$alumno->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
+                            </button>
+                            <button type="button" class="btn btn-danger" style="padding: 0;">
+                                <form action="{{ route('alumnos.destroy', [$alumno->id]) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Eliminar">
+                                </form>
+                            </button>
+                          </div>
                     </td>
                 </tr>
             @endforeach
