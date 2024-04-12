@@ -16,3 +16,4 @@ Route::delete('alumnos/{idAlumno}', [AlumnoController::class, 'destroy'])->name(
 Route::get('/instructores', [InstructorController::class, 'index'])->name('instructores.index');
 Route::get('/instructores/create', [InstructorController::class, 'create'])->name('instructores.create');
 Route::post('/instructores/store', [InstructorController::class, 'store'])->name('instructores.store');
+Route::get('/instructores/{idInstructor}/edit', [InstructorController::class, 'edit'])->name('instructores.edit');

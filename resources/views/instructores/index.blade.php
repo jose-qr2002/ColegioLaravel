@@ -47,7 +47,7 @@
                     <td style="">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <button type="button" class="btn btn-warning">
-                                <a href="" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
+                                <a href="{{ route('instructores.edit', [$instructor->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
                             </button>
                             <button type="button" class="btn btn-danger" style="padding: 0;">
                                 <form action="" method="POST" style="display: inline;">

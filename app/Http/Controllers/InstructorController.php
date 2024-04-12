@@ -20,4 +20,9 @@ class InstructorController extends Controller
         Instructor::create($request->all());
         return redirect()->route('instructores.index');
     }
+
+    public function edit($id) {
+        $instructor = Instructor::findOrFail($id);
+        return view('instructores.edit', compact('instructor'));
+    }
 }
