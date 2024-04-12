@@ -11,4 +11,8 @@ class InstructorController extends Controller
         $instructores = Instructor::all();
         return view('instructores.index', compact('instructores'));
     }
+
+    public function create() {
+        return view('instructores.create');
+    }
 }

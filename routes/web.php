@@ -14,3 +14,4 @@ Route::delete('alumnos/{idAlumno}', [AlumnoController::class, 'destroy'])->name(
 
 // Crud Instructores
 Route::get('/instructores', [InstructorController::class, 'index'])->name('instructores.index');
+Route::get('/instructores/create', [InstructorController::class, 'create'])->name('instructores.create');
