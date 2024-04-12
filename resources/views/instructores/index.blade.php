@@ -8,6 +8,10 @@
             color: white;
             font-weight: 700;
         }
+
+        tbody td {
+            align-content: center;
+        }
     </style>
 @endsection
 
