@@ -22,7 +22,7 @@
                     <a class="nav-link" aria-current="page" href="{{ route('alumnos.index') }}">Alumnos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Instructores</a>
+                    <a class="nav-link" href="{{ route('instructores.index') }}">Instructores</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Cursos</a>
