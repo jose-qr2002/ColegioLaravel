@@ -50,7 +50,7 @@
                                 <a href="{{ route('instructores.edit', [$instructor->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
                             </button>
                             <button type="button" class="btn btn-danger" style="padding: 0;">
-                                <form action="" method="POST" style="display: inline;">
+                                <form action="{{ route('instructores.destroy', [$instructor->id]) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Eliminar">

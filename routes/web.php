@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\InstructorController;
+use App\Models\Instructor;
 
 // Crud Alumnos
 Route::get('/', [AlumnoController::class, 'index'])->name('alumnos.index');
@@ -17,4 +18,5 @@ Route::get('/instructores', [InstructorController::class, 'index'])->name('instr
 Route::get('/instructores/create', [InstructorController::class, 'create'])->name('instructores.create');
 Route::post('/instructores/store', [InstructorController::class, 'store'])->name('instructores.store');
 Route::get('/instructores/{idInstructor}/edit', [InstructorController::class, 'edit'])->name('instructores.edit');
-Route::put('/instructores/{idAlumno}/update', [AlumnoController::class, 'update'])->name('instructores.update');
+Route::put('/instructores/{idInstructor}/update', [InstructorController::class, 'update'])->name('instructores.update');
+Route::delete('/instructores/{idInstructor}/delete', [InstructorController::class, 'destroy'])->name('instructores.destroy');

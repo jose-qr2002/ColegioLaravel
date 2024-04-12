@@ -39,7 +39,14 @@ class InstructorController extends Controller
             'salario' => $request->salario
         ]);
 
-        return redirect()->route('instructor.index');
+        return redirect()->route('instructores.index');
+    }
+
+    public function destroy($id) {
+        $instructor = Instructor::findOrFail($id);
+        $instructor->delete();
+
+        return redirect()->route('instructores.index');
     }
 
 }
