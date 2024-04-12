@@ -9,13 +9,15 @@ class AlumnoController extends Controller
 {
     public function index()
     {
+        $link = 'alumnos';
         $alumnos = Alumno::all();
-        return view('alumnos.index', compact('alumnos'));
+        return view('alumnos.index', compact('alumnos', 'link'));
     }
 
     public function create(Request $request)
     {
-        return view('alumnos.create');
+        $link = 'alumnos';
+        return view('alumnos.create', compact('link'));
     }
 
     public function store(Request $request)
@@ -26,8 +28,9 @@ class AlumnoController extends Controller
 
     public function edit($id)
     {
+        $link = 'alumnos';
         $alumno = Alumno::findOrFail($id);
-        return view('alumnos.edit', compact('alumno'));
+        return view('alumnos.edit', compact('alumno', 'link'));
     }
 
     public function update(Request $request, $id) {

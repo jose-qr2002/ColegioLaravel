@@ -19,10 +19,10 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('alumnos.index') }}">Alumnos</a>
+                    <a class="nav-link {{ $link == 'alumnos' ? 'active' : '' }}" href="{{ route('alumnos.index') }}">Alumnos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('instructores.index') }}">Instructores</a>
+                    <a class="nav-link {{ $link == 'instructores' ? 'active' : '' }}" href="{{ route('instructores.index') }}">Instructores</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Cursos</a>

@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 class InstructorController extends Controller
 {
     public function index() {
+        $link = 'instructores';
         $instructores = Instructor::all();
-        return view('instructores.index', compact('instructores'));
+        return view('instructores.index', compact('instructores', 'link'));
     }
 
     public function create() {
-        return view('instructores.create');
+        $link = 'instructores';
+        return view('instructores.create', compact('link'));
     }
 
     public function store(Request $request) {
@@ -22,8 +24,9 @@ class InstructorController extends Controller
     }
 
     public function edit($id) {
+        $link = 'instructores';
         $instructor = Instructor::findOrFail($id);
-        return view('instructores.edit', compact('instructor'));
+        return view('instructores.edit', compact('instructor', 'link'));
     }
 
     public function update(Request $request, $id) {
