@@ -23,8 +23,9 @@
         <div class="card-body">
             <a href="{{ route('instructores.index') }}" class="btn btn-secondary btn-sm mb-2">Volver</a>
             <h5 class="card-title">Llene los campos</h5>
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('instructores.update', [$instructor->id]) }}">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-3">
                         <label for="dni" class="form-label">DNI</label>

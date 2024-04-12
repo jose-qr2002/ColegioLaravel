@@ -25,4 +25,21 @@ class InstructorController extends Controller
         $instructor = Instructor::findOrFail($id);
         return view('instructores.edit', compact('instructor'));
     }
+
+    public function update(Request $request, $id) {
+        $instructor = Instructor::findOrFail($id);
+
+        $instructor->update([
+            'nombres' => $request->nombres,
+            'apellidos' => $request->apellidos,
+            'dni' => $request->dni,
+            'celular' => $request->celular,
+            'direccion' => $request->direccion,
+            'titulo' => $request->titulo,
+            'salario' => $request->salario
+        ]);
+
+        return redirect()->route('instructor.index');
+    }
+
 }
