@@ -15,4 +15,9 @@ class InstructorController extends Controller
     public function create() {
         return view('instructores.create');
     }
+
+    public function store(Request $request) {
+        Instructor::create($request->all());
+        return redirect()->route('instructores.index');
+    }
 }

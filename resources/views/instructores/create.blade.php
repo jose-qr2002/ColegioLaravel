@@ -23,11 +23,17 @@
             <div class="card-body">
                 <a href="{{ route('instructores.index') }}" class="btn btn-secondary btn-sm mb-2">Volver</a>
                 <h5 class="card-title">Llene los campos</h5>
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('instructores.store') }}">
                     @csrf
-                    <div class="mb-3">
-                        <label for="dni" class="form-label">DNI</label>
-                        <input type="number" id="dni" name="dni" class="form-control" placeholder="Ingrese un N° de DNI">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="number" id="dni" name="dni" class="form-control" placeholder="Ingrese un N° de DNI">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label for="titulo" class="form-label">Titulo</label>
+                            <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Ingrese el Titulo del Instructor">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
@@ -45,13 +51,13 @@
                             <input type="text" id="celular" name="celular" class="form-control" placeholder="Ingrese el numero de celular">
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="apellidos" class="form-label">Salario</label>
-                            <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese el salario">
+                            <label for="salario" class="form-label">Salario</label>
+                            <input type="text" id="salario" name="salario" class="form-control" placeholder="Ingrese el salario">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="apellidos" class="form-label">Direccion</label>
-                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese la dirección">
+                        <label for="direccion" class="form-label">Direccion</label>
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese la dirección">
                     </div>
             
                     <button type="submit" class="btn btn-dark">Guardar</button>
