@@ -10,7 +10,17 @@
         <style>
           body {
             min-height: 100vh;
-            background: linear-gradient(to bottom, #f7f5f5f1, #c7c5c5);
+            background: linear-gradient(to bottom, #f7f5f5f1, #ebe8e8);
+          }
+
+          .error {
+            background-color: rgb(241, 159, 159);
+            color: #ec0e0e;
+            font-weight: 700;
+            border-inline: 3px solid #f80000;
+            padding: 5px;
+            font-size: 13px;
+            margin-top: 10px;
           }
         </style>
         @yield('estilos')

@@ -19,6 +19,17 @@ class InstructorController extends Controller
     }
 
     public function store(Request $request) {
+        $request->validate([
+            'dni' => 'required|numeric|digits:8|unique:instructores,dni',
+            'nombres' => 'required|alpha',
+            'apellidos' => 'required|alpha',
+            'celular' => 'required|numeric',
+            'profesion' => 'required|in:Ingeniería de Sistemas,Desarrollo de Software,Ingeniería en Inteligencia Artificial',
+            'grado_instruccion' => 'required|in:Técnico,Licenciado',
+            'anios_experiencia' => 'required|integer|min:0',
+            'salario' => 'required|numeric',
+            'direccion' => 'required'
+        ]);
         Instructor::create($request->all());
         return redirect()->route('instructores.index');
     }
