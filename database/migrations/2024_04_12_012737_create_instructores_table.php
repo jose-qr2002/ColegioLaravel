@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('apellidos');
             $table->string('celular');
             $table->string('direccion');
-            $table->string('titulo');
+            $table->enum('profesion', ['Ingeniería de Sistemas', 'Desarrollo de Software', 'Ingeniería en Inteligencia Artificial']);
+            $table->enum('grado_instruccion', ['Técnico', 'Licenciado']);
+            $table->integer('anios_experiencia');
             $table->decimal('salario', 8, 2);
             $table->timestamps();
         });

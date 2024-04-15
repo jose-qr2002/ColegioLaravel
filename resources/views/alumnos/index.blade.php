@@ -18,7 +18,7 @@
 @section('contenido')
 <div class="container">
     <h1 class="text-uppercase fs-1 text-center mt-3">Lista de Alumnos</h1>
-    <a href="{{ route('alumnos.create') }}" class="btn btn-primary">Registrar Alumno</a>
+    <a href="{{ route('alumnos.create') }}" class="btn btn-dark opacity-75">Registrar Alumno</a>
     <div class="table-responsive">
         <table class="table table-striped table-bordered border-danger caption-top">
             <caption>

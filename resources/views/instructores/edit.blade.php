@@ -28,37 +28,56 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-3">
-                        <label for="dni" class="form-label">DNI</label>
-                        <input type="number" id="dni" name="dni" class="form-control" placeholder="Ingrese un N° de DNI" value="{{ $instructor->dni }}">
-                    </div>
-                    <div class="col-12 col-sm-6 mb-3">
-                        <label for="titulo" class="form-label">Titulo</label>
-                        <input type="text" id="titulo" name="titulo" class="form-control" placeholder="Ingrese el Titulo del Instructor" value="{{ $instructor->titulo }}">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 mb-3">
                         <label for="nombres" class="form-label">Nombres</label>
-                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Ingrese su nombre" value="{{ $instructor->nombres }}">
+                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Ingrese su nombre" value="{{$instructor->nombres}}">
                     </div>
                     <div class="col-12 col-sm-6 mb-3">
                         <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese sus apellidos" value="{{ $instructor->apellidos }}">
+                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese sus apellidos" value="{{$instructor->apellidos}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-3">
-                        <label for="celular" class="form-label">Celular</label>
-                        <input type="text" id="celular" name="celular" class="form-control" placeholder="Ingrese el numero de celular" value="{{ $instructor->celular }}">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="number" id="dni" name="dni" class="form-control" placeholder="Ingrese un N° de DNI" value="{{$instructor->dni}}">
                     </div>
                     <div class="col-12 col-sm-6 mb-3">
+                        <label for="celular" class="form-label">Celular</label>
+                        <input type="text" id="celular" name="celular" class="form-control" placeholder="Ingrese el numero de celular" value="{{$instructor->celular}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-3">
                         <label for="salario" class="form-label">Salario</label>
-                        <input type="text" id="salario" name="salario" class="form-control" placeholder="Ingrese el salario" value="{{ $instructor->salario }}">
+                        <input type="text" id="salario" name="salario" class="form-control" placeholder="Ingrese el salario" value="{{$instructor->salario}}">
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3">
+                        <label for="anios_experiencia" class="form-label">Años de Experiencia</label>
+                        <input type="number" class="form-control" id="anios_experiencia" name="anios_experiencia" placeholder="Ingrese los años de experiencia" value="{{$instructor->anios_experiencia}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-3">
+                        <label for="grado_instruccion" class="form-label">Grado de Instruccion</label>
+                        <select class="form-select" name="grado_instruccion" id="grado_instruccion">
+                            <option value="" disabled selected {{ $instructor->grado_instruccion == '' ? 'selected' : '' }}>-- Seleccione una opcion --</option>
+                            <option value="Técnico" {{ $instructor->grado_instruccion == 'Técnico' ? 'selected' : '' }}>Técnico</option>
+                            <option value="Licenciado" {{ $instructor->grado_instruccion == 'Licenciado' ? 'selected' : '' }}>Licenciado</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3">
+                        <label for="profesion" class="form-label">Profesión</label>
+                        <select class="form-select" name="profesion" id="profesion">
+                            <option value="" disabled selected {{ $instructor->profesion == '' ? 'selected' : '' }}>-- Seleccione una opción --</option>
+                            <option value="Ingeniería de Sistemas" {{ $instructor->profesion == 'Ingeniería de Sistemas' ? 'selected' : '' }}>Ingeniería de Sistemas</option>
+                            <option value="Desarrollo de Software" {{ $instructor->profesion == 'Desarrollo de Software' ? 'selected' : '' }}>Desarrollo de Software</option>
+                            <option value="Ingeniería en Inteligencia Artificial" {{ $instructor->profesion == 'Ingeniería en Inteligencia Artificial' ? 'selected' : '' }}>Ingeniería en Inteligencia Artificial</option>
+                        </select>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="direccion" class="form-label">Direccion</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese la dirección" value="{{ $instructor->direccion }}">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese la dirección" value="{{$instructor->direccion}}">
                 </div>
         
                 <button type="submit" class="btn btn-dark">Guardar</button>

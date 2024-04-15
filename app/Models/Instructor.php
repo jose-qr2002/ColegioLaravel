@@ -15,8 +15,10 @@ class Instructor extends Model
         'nombres', 
         'apellidos',
         'celular',
+        'grado_instruccion',
+        'anios_experiencia',
         'direccion',
-        'titulo',
+        'profesion',
         'salario'
     ];
 }
