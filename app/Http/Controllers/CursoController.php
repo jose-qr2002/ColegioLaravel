@@ -21,12 +21,32 @@ class CursoController extends Controller
     public function store(Request $request) {
         $request->validate([
             'codigo' => 'required|alpha_num|size:5|unique:cursos,codigo',
-            'nombre' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
+            'nombre' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
             'carrera' => 'required|in:Ingeniería de Soporte TI,Ingeniería de Software,Administración de empresas',
             'modalidad' => 'required|in:Presencial,Semipresencial,Virtual',
             'ciclo' => 'required|in:I,II,III,IV,V,VI',
         ]);
         Curso::create($request->all());
+        return redirect()->route('cursos.index');
+    }
+
+    public function edit($id) {
+        $link = 'cursos';
+        $curso = Curso::findOrFail($id);
+        return view('cursos.edit', compact('link', 'curso'));
+    }
+
+    public function update(Request $request, $id) {
+        $curso = Curso::findOrFail($id);
+
+        $request->validate([
+            'codigo' => 'required|alpha_num|size:5|unique:cursos,codigo,'.$id,
+            'nombre' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
+            'carrera' => 'required|in:Ingeniería de Soporte TI,Ingeniería de Software,Administración de empresas',
+            'modalidad' => 'required|in:Presencial,Semipresencial,Virtual',
+            'ciclo' => 'required|in:I,II,III,IV,V,VI',
+        ]);
+        $curso->update($request->all());
         return redirect()->route('cursos.index');
     }
 }

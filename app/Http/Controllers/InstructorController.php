@@ -21,8 +21,8 @@ class InstructorController extends Controller
     public function store(Request $request) {
         $request->validate([
             'dni' => 'required|numeric|digits:8|unique:instructores,dni',
-            'nombres' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'apellidos' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'nombres' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
+            'apellidos' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
             'celular' => 'required|numeric',
             'profesion' => 'required|in:Ingeniería de Sistemas,Desarrollo de Software,Ingeniería en Inteligencia Artificial',
             'grado_instruccion' => 'required|in:Técnico,Licenciado',
@@ -45,8 +45,8 @@ class InstructorController extends Controller
 
         $request->validate([
             'dni' => 'required|numeric|digits:8|unique:instructores,dni,'.$id,
-            'nombres' => 'required|regex:/^[a-zA-Z\s]+$/',
-            'apellidos' => 'required|regex:/^[a-zA-Z\s]+$/',
+            'nombres' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
+            'apellidos' => 'required|regex:/^[\pL\s\dáéíóúÁÉÍÓÚüÜ]+$/u',
             'celular' => 'required|numeric',
             'profesion' => 'required|in:Ingeniería de Sistemas,Desarrollo de Software,Ingeniería en Inteligencia Artificial',
             'grado_instruccion' => 'required|in:Técnico,Licenciado',
