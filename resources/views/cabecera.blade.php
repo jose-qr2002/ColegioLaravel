@@ -41,7 +41,7 @@
                     <a class="nav-link {{ $link == 'instructores' ? 'active' : '' }}" href="{{ route('instructores.index') }}">Instructores</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Cursos</a>
+                    <a class="nav-link {{ $link == 'cursos' ? 'active' : '' }}" href="{{ route('cursos.index') }}">Cursos</a>
                   </li>
                 </ul>
               </div>

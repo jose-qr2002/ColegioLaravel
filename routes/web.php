@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\CursoController;
 use App\Http\Controllers\InstructorController;
 use App\Models\Instructor;
 
@@ -20,3 +21,6 @@ Route::post('/instructores/store', [InstructorController::class, 'store'])->name
 Route::get('/instructores/{idInstructor}/edit', [InstructorController::class, 'edit'])->name('instructores.edit');
 Route::put('/instructores/{idInstructor}/update', [InstructorController::class, 'update'])->name('instructores.update');
 Route::delete('/instructores/{idInstructor}/delete', [InstructorController::class, 'destroy'])->name('instructores.destroy');
+
+// Crud Cursos
+Route::get('/cursos', [CursoController::class, 'index'])->name('cursos.index');
