@@ -49,4 +49,10 @@ class CursoController extends Controller
         $curso->update($request->all());
         return redirect()->route('cursos.index');
     }
+
+    public function destroy($id) {
+        $curso = Curso::findOrFail($id);
+        $curso->delete();
+        return redirect()->route('cursos.index');
+    }
 }

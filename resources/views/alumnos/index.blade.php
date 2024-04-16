@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <tbody class="table-warning">
-            @foreach($alumnos as $alumno)
+            @forelse($alumnos as $alumno)
                 <tr>
                     <td>{{ $alumno->id }}</td>
                     <td>{{ $alumno->dni }}</td>
@@ -42,9 +42,7 @@
                     <td>{{ $alumno->apellidos }}</td>
                     <td style="">
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <button type="button" class="btn btn-warning">
-                                <a href="{{ route('alumnos.edit', [$alumno->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
-                            </button>
+                            <a class="btn btn-warning" href="{{ route('alumnos.edit', [$alumno->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
                             <button type="button" class="btn btn-danger" style="padding: 0;">
                                 <form action="{{ route('alumnos.destroy', [$alumno->id]) }}" method="POST" style="display: inline;">
                                     @csrf
@@ -55,7 +53,13 @@
                           </div>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="5">
+                        No hay alumnos registrados
+                    </td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
     </div>

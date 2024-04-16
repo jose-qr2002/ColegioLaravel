@@ -22,6 +22,12 @@ class AlumnoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'dni' => 'required|digits:8|unique:alumnos,dni',
+            'nombres' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
+            'apellidos' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
+        ]);
+
         Alumno::create($request->all());
         return redirect()->route('alumnos.index');
     }
@@ -35,6 +41,12 @@ class AlumnoController extends Controller
 
     public function update(Request $request, $id) {
         $alumno = Alumno::findOrFail($id);
+
+        $request->validate([
+            'dni' => 'required|digits:8|unique:alumnos,dni,'.$id,
+            'nombres' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
+            'apellidos' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
+        ]);
 
         $alumno->update([
             'nombres' => $request->nombres,
