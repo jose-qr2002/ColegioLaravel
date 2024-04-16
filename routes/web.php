@@ -7,7 +7,8 @@ use App\Http\Controllers\InstructorController;
 use App\Models\Instructor;
 
 // Crud Alumnos
-Route::get('/', [AlumnoController::class, 'index'])->name('alumnos.index');
+Route::redirect('/', '/alumnos');
+Route::get('/alumnos', [AlumnoController::class, 'index'])->name('alumnos.index');
 Route::get('/alumnos/create', [AlumnoController::class, 'create'])->name('alumnos.create');
 Route::post('alumnos', [AlumnoController::class, 'store'])->name('alumnos.store');
 Route::get('alumnos/{idAlumno}/edit', [AlumnoController::class, 'edit'])->name('alumnos.edit');
