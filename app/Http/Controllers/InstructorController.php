@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class InstructorController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         $link = 'instructores';
+        if($request->parametro && $request->metodoBusqueda) {
+            $instructores = Instructor::where($request->metodoBusqueda, 'like', '%'.$request->parametro.'%')->get();
+            return view('instructores.index', compact('instructores', 'link'));
+        }
         $instructores = Instructor::all();
         return view('instructores.index', compact('instructores', 'link'));
     }

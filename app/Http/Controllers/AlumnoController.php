@@ -7,9 +7,13 @@ use App\Models\Alumno;
 
 class AlumnoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $link = 'alumnos';
+        if($request->parametro && $request->metodoBusqueda) {
+            $alumnos = Alumno::where($request->metodoBusqueda, 'like', '%'.$request->parametro.'%')->get();
+            return view('alumnos.index', compact('alumnos', 'link'));
+        }
         $alumnos = Alumno::all();
         return view('alumnos.index', compact('alumnos', 'link'));
     }
