@@ -17,7 +17,7 @@
 
 @section('contenido')
 <div class="container">
-    <h1 class="text-uppercase fs-1 text-center mt-3">Lista de Alumnos Editar</h1>
+    <h1 class="text-uppercase fs-1 text-center mt-3">Lista de Alumnos Genios Senati</h1>
     <div class="d-sm-flex justify-content-sm-between">
         <a href="{{ route('alumnos.create') }}" class="mb-2 btn btn-dark opacity-75">Registrar Alumno</a>
         <form action="{{ route('alumnos.index') }}" method="GET" class="input-group" style="max-width: 300px">
