@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\MatriculaController;
 use App\Models\Instructor;
 
 // Crud Alumnos
@@ -30,3 +31,6 @@ Route::post('/cursos/store', [CursoController::class, 'store'])->name('cursos.st
 Route::get('/cursos/{idCurso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
 Route::put('/cursos/{idCurso}/update', [CursoController::class, 'update'])->name('cursos.update');
 Route::delete('/cursos/{idCurso}/delete', [CursoController::class, 'destroy'])->name('cursos.destroy');
+
+// CRUD MATRICULAS
+Route::get('/matriculas', [MatriculaController::class, 'index'])->name('matriculas.index');
