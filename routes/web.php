@@ -34,3 +34,5 @@ Route::delete('/cursos/{idCurso}/delete', [CursoController::class, 'destroy'])->
 
 // CRUD MATRICULAS
 Route::get('/matriculas', [MatriculaController::class, 'index'])->name('matriculas.index');
+Route::get('/matriculas/create', [MatriculaController::class, 'create'])->name('matriculas.create');
+Route::post('/matriculas/store', [MatriculaController::class, 'store'])->name('matriculas.store');
