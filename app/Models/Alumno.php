@@ -12,4 +12,7 @@ class Alumno extends Model
     protected $table = 'alumnos';
     protected $fillable = ['dni', 'nombres', 'apellidos'];
 
+    public function matriculas() {
+        return $this->hasMany(Matricula::class, 'idAlumno');
+    }
 }

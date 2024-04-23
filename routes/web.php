@@ -15,6 +15,7 @@ Route::post('alumnos', [AlumnoController::class, 'store'])->name('alumnos.store'
 Route::get('alumnos/{idAlumno}/edit', [AlumnoController::class, 'edit'])->name('alumnos.edit');
 Route::put('alumnos/{idAlumno}', [AlumnoController::class, 'update'])->name('alumnos.update');
 Route::delete('alumnos/{idAlumno}', [AlumnoController::class, 'destroy'])->name('alumnos.destroy');
+Route::get('/alumnos/matriculas/{id}', [AlumnoController::class, 'showMatriculas'])->name('alumnos.matriculas');
 
 // Crud Instructores
 Route::get('/instructores', [InstructorController::class, 'index'])->name('instructores.index');

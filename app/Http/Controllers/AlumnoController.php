@@ -68,4 +68,11 @@ class AlumnoController extends Controller
         return redirect()->route('alumnos.index');
     }
 
+    public function showMatriculas($id) {
+        $link = 'alumnos';
+        $alumno = Alumno::findOrFail($id);
+        $matriculas = $alumno->matriculas;
+        return view('alumnos.showMatriculas', compact('link', 'alumno', 'matriculas'));
+    }
+
 }
