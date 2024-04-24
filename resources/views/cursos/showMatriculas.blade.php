@@ -60,7 +60,8 @@
 @endsection
 
 @section('contenido')
-    <h1 class="text-center mt-2 fs-1">Matriculas Registradas</h1>
+<div class="contenido-sombra">
+    <h1 class="text-center fs-1">Matriculas Registradas</h1>
     <div class="container">
         <div class="card" style="max-width: 100%;">
             <div class="card-body">
@@ -109,4 +110,5 @@
             </div>  
         </div>
     </div>
+</div>
 @endsection

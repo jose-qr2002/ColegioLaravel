@@ -10,7 +10,7 @@
         <style>
           body {
             min-height: 100vh;
-            background: linear-gradient(to bottom, #f7f5f5f1, #ebe8e8);
+            background: #4E4D4D;
           }
 
           .error {
@@ -21,6 +21,18 @@
             padding: 5px;
             font-size: 13px;
             margin-top: 10px;
+          }
+
+          .contenido-sombra {
+            background: linear-gradient(to bottom, #212529 0%,  #4d4c4cf1 30%, #4d4c4cf1 100%);
+          }
+
+          .contenido-sombra h1 {
+            color: #fff;
+          }
+
+          table caption {
+            color: #fff;
           }
         </style>
         @yield('estilos')

@@ -17,8 +17,9 @@
 @endsection
 
 @section('contenido')
+<div class="contenido-sombra">
     <div class="container-form">
-        <h2 class="fs-1 mt-3 mb-3" style="text-align: center;">Registrar Instructor</h2>
+        <h1 class="fs-1 mb-3" style="text-align: center;">Registrar Instructor</h1>
         <div class="card shadow">
             <div class="card-body">
                 <a href="{{ route('instructores.index') }}" class="btn btn-secondary btn-sm mb-2"><i class="ri-arrow-left-line"></i> Volver</a>
@@ -129,4 +130,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

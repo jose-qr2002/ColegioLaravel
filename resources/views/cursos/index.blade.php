@@ -16,14 +16,15 @@
 @endsection
 
 @section('contenido')
+<div class="contenido-sombra">
     <div class="container">
-        <h1 class="text-uppercase fs-1 text-center mt-3">Lista de Cursos</h1>
+        <h1 class="text-uppercase fs-1 text-center">Lista de Cursos</h1>
         <div class="d-sm-flex justify-content-sm-between">
-            <a href="{{ route('cursos.create') }}" class="mb-2 btn btn-dark opacity-75">Agregar Curso</a>
+            <a href="{{ route('cursos.create') }}" class="mb-2 btn btn-primary opacity-75">Agregar Curso</a>
             <form action="{{ route('cursos.index') }}" method="GET" class="input-group" style="max-width: 300px">
                 <input value="{{ request()->input('parametro') ?? '' }}" id="parametro" name="parametro" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="submit" class="btn btn-primary opacity-75">Buscar</button>
+                <button type="button" class="btn btn-primary opacity-75 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <input type="hidden" value="{{ request()->input('metodoBusqueda') ?? '' }}" id="metodoBusqueda" name="metodoBusqueda">
@@ -51,7 +52,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="table-warning">
+                <tbody class="table-secondary">
                 @forelse($cursos as $curso)
                     <tr>
                         <td>{{ $curso->id }}</td>
@@ -83,6 +84,7 @@
             </table>
         </div>
     </div>
+</div>
     <script>
         // Declaracion de Variables
         const inputMetodoBusqueda = document.querySelector('#metodoBusqueda');
