@@ -62,6 +62,7 @@
                         <td>{{ $curso->ciclo }}</td>
                         <td style="">
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <a href="{{ route('cursos.matriculas', $curso->id) }}" class="btn btn-primary">Matriculas</a>
                                 <a class="btn btn-warning" href="{{ route('cursos.edit', [$curso->id]) }}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
                                 <button type="button" class="btn btn-danger" style="padding: 0;">
                                     <form action="{{ route('cursos.destroy', [$curso->id]) }}" method="POST" style="display: inline;">

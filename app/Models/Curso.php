@@ -17,4 +17,8 @@ class Curso extends Model
         'carrera',
         'ciclo'
     ];
+
+    public function matriculas() {
+        return $this->hasMany(Matricula::class, 'idCurso');
+    }
 }

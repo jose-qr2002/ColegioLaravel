@@ -59,4 +59,11 @@ class CursoController extends Controller
         $curso->delete();
         return redirect()->route('cursos.index');
     }
+
+    public function showMatriculas($id) {
+        $link = 'cursos';
+        $curso = Curso::findOrFail($id);
+        $matriculas = $curso->matriculas;
+        return view('cursos.showMatriculas', compact('link', 'curso', 'matriculas'));
+    }
 }

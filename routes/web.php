@@ -32,6 +32,7 @@ Route::post('/cursos/store', [CursoController::class, 'store'])->name('cursos.st
 Route::get('/cursos/{idCurso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
 Route::put('/cursos/{idCurso}/update', [CursoController::class, 'update'])->name('cursos.update');
 Route::delete('/cursos/{idCurso}/delete', [CursoController::class, 'destroy'])->name('cursos.destroy');
+Route::get('/cursos/matriculas/{id}', [CursoController::class, 'showMatriculas'])->name('cursos.matriculas');
 
 // CRUD MATRICULAS
 Route::get('/matriculas', [MatriculaController::class, 'index'])->name('matriculas.index');
