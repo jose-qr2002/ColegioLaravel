@@ -20,11 +20,11 @@
     <div class="container">
         <h1 class="text-uppercase fs-1 text-center">Lista de Instructores</h1>
         <div class="d-sm-flex justify-content-sm-between">
-            <a href="{{ route('instructores.create') }}" class="mb-2 btn btn-dark opacity-75">Registrar Instructor</a>
+            <a href="{{ route('instructores.create') }}" class="mb-2 btn btn-info">Registrar Instructor</a>
             <form action="{{ route('instructores.index') }}" method="GET" class="input-group" style="max-width: 300px">
                 <input value="{{ request()->input('parametro') ?? '' }}" id="parametro" name="parametro" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
-                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="submit" class="btn btn-info opacity-75">Buscar</button>
+                <button type="button" class="btn btn-info opacity-75 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <input type="hidden" value="{{ request()->input('metodoBusqueda') ?? '' }}" id="metodoBusqueda" name="metodoBusqueda">
@@ -53,7 +53,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="table-warning">
+                <tbody class="table-secondary">
                 @forelse($instructores as $instructor)
                     <tr>
                         <td>{{ $instructor->id }}</td>
