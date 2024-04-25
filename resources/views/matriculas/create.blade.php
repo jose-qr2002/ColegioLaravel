@@ -83,7 +83,22 @@
                             <option value="2024-II">2024-II</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-dark fw-semibold">Guardar</button>
+                    @error('anioAcad')
+                        <div class="error" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    @error('idAlumno')
+                        <div class="error" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    @error('idCurso')
+                        <div class="error" role="alert">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <button type="submit" class="btn btn-dark fw-semibold mt-2">Guardar</button>
                 </form>
             </div>
         </div>

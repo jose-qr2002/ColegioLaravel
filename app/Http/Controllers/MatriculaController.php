@@ -7,6 +7,7 @@ use App\Models\Curso;
 use App\Models\Matricula;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MatriculaController extends Controller
 {
@@ -45,9 +46,18 @@ class MatriculaController extends Controller
             'idCurso' => 'required|exists:cursos,id',
             'anioAcad' => 'required|in:2023-I,2023-II,2024-I,2024-II'
         ]);
-
-        Matricula::create($request->all());
-        return redirect()->route('matriculas.index');
+        try {
+            Matricula::create($request->all());
+            return redirect()->route('matriculas.index');
+            Session::forget('idAlumno');
+            Session::forget('idCurso');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro registrar la matricula',
+                'tipo' => 'danger'
+            ]);
+        }
+        
     }
 
     public function destroy($id) {
