@@ -22,13 +22,13 @@
         <h1 class="fs-1 mb-3" style="text-align: center;">Editar Curso</h1>
         <div class="card shadow">
             <div class="card-body">
-                <a href="{{ route('cursos.index') }}" class="btn btn-secondary btn-sm mb-2"><i class="ri-arrow-left-line"></i> Volver</a>
-                <h5 class="card-title">Llene los campos</h5>
+                <a href="{{ route('cursos.index') }}" class="btn btn-info btn-sm mb-3"><i class="ri-arrow-left-line"></i> Volver</a>
+                <h5 class="card-subtitle mb-2 text-muted fs-6">Llene los campos</h5>
                 <form method="POST" action="{{ route('cursos.update', [$curso->id]) }}">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
+                        <label for="nombre" class="form-label fw-bold">Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese el nombre del curso" value="{{ old('nombre', $curso->nombre) }}">
                         @error('nombre')
                             <div class="error" role="alert">
@@ -37,7 +37,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="codigo" class="form-label">Codigo</label>
+                        <label for="codigo" class="form-label fw-bold">Codigo</label>
                         <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Ingrese un código" value="{{ old('codigo', $curso->codigo) }}">
                         @error('codigo')
                             <div class="error" role="alert">
@@ -46,7 +46,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="carrera" class="form-label">Carrera</label>
+                        <label for="carrera" class="form-label fw-bold">Carrera</label>
                         <select class="form-select" name="carrera" id="carrera">
                             <option value="" disabled selected>-- Seleccione una opcion --</option>
                             <option value="Ingeniería de Soporte TI" {{ old('carrera', $curso->carrera) == 'Ingeniería de Soporte TI' ? 'selected':'' }}>Ingeniería de Soporte TI</option>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="modalidad" class="form-label">Modalidad</label>
+                            <label for="modalidad" class="form-label fw-bold">Modalidad</label>
                             <select class="form-select" name="modalidad" id="modalidad">
                                 <option value="" disabled selected>-- Seleccione una opcion --</option>
                                 <option value="Presencial" {{ old('modalidad', $curso->modalidad) == 'Presencial' ? 'selected':'' }}>Presencial</option>
@@ -75,7 +75,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="ciclo" class="form-label">Ciclo</label>
+                            <label for="ciclo" class="form-label fw-bold">Ciclo</label>
                             <select class="form-select" name="ciclo" id="ciclo">
                                 <option value="" disabled selected>-- Seleccione una opcion --</option>
                                 <option value="I" {{ old('ciclo', $curso->ciclo) == 'I' ? 'selected':'' }}>I</option>

@@ -22,11 +22,11 @@
         <h1 class="fs-1 mb-3" style="text-align: center;">Registrar Matricula</h1>
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('matriculas.index') }}" class="btn btn-secondary btn-sm mb-2"><i class="ri-arrow-left-line"></i> Volver</a>
-                <h5 class="card-title">Ingrese los campos</h5>
+                <a href="{{ route('matriculas.index') }}" class="btn btn-info btn-sm mb-3"><i class="ri-arrow-left-line"></i> Volver</a>
+                <h5 class="card-subtitle mb-2 text-muted fs-6">Ingrese los campos</h5>
                 <form method="GET" action="{{ route('matriculas.create') }}">
                     <div class="mb-3">
-                        <label for="dni" class="form-label">Busque un Alumno</label>
+                        <label for="dni" class="form-label fw-bold">Busque un Alumno</label>
                         <div class="input-group mb-3">
                             <input name="alumnoDni" type="text" class="form-control" placeholder="Buscar por DNI" value="{{ request()->input('alumnoDni') ?? ''}}">
                             <button class="btn btn-outline-secondary" type="submit">Buscar</button>
@@ -44,7 +44,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="dni" class="form-label">Busque un Curso</label>
+                        <label for="dni" class="form-label fw-bold">Busque un Curso</label>
                         <div class="input-group mb-3">
                             <input name="cursoCodigo" type="text" class="form-control" placeholder="Buscar por Codigo" value="{{ request()->input('cursoCodigo') ?? ''}}">
                             <button class="btn btn-outline-secondary" type="submit">Buscar</button>
@@ -68,7 +68,7 @@
                     <input type="hidden" name="idAlumno" value="{{ session('idAlumno') ?? '' }}">
                     <input type="hidden" name="idCurso" value="{{ session('idCurso') ?? '' }}">
                     <div class="mb-3">
-                        <label for="dni" class="form-label">Selecciones un año academico</label>
+                        <label for="dni" class="form-label fw-bold">Selecciones un año academico</label>
                         <select name="anioAcad" class="form-select">
                             <option value="" disabled selected>--Seleccione una opcion--</option>
                             <option value="2023-I">2023-I</option>

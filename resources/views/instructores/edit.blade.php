@@ -22,14 +22,14 @@
         <h1 class="fs-1 mb-3" style="text-align: center;">Editar Instructor</h1>
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('instructores.index') }}" class="btn btn-secondary btn-sm mb-2"><i class="ri-arrow-left-line"></i> Volver</a>
-                <h5 class="card-title">Llene los campos</h5>
+                <a href="{{ route('instructores.index') }}" class="btn btn-info btn-sm mb-3"><i class="ri-arrow-left-line"></i> Volver</a>
+                <h5 class="card-subtitle mb-2 text-muted fs-6">Llene los campos</h5>
                 <form method="POST" action="{{ route('instructores.update', [$instructor->id]) }}">
                     @csrf
                     @method('PUT')
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="nombres" class="form-label">Nombres</label>
+                            <label for="nombres" class="form-label fw-bold">Nombres</label>
                             <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Ingrese su nombre" value="{{old('nombres', $instructor->nombres)}}">
                             @error('nombres')
                                 <div class="error" role="alert">
@@ -38,7 +38,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <label for="apellidos" class="form-label fw-bold">Apellidos</label>
                             <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese sus apellidos" value="{{old('apellidos', $instructor->apellidos)}}">
                             @error('apellidos')
                                 <div class="error" role="alert">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="dni" class="form-label">DNI</label>
+                            <label for="dni" class="form-label fw-bold">DNI</label>
                             <input type="number" id="dni" name="dni" class="form-control" placeholder="Ingrese un N° de DNI" value="{{old('dni', $instructor->dni)}}">
                             @error('dni')
                                 <div class="error" role="alert">
@@ -58,7 +58,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="celular" class="form-label">Celular</label>
+                            <label for="celular" class="form-label fw-bold">Celular</label>
                             <input type="text" id="celular" name="celular" class="form-control" placeholder="Ingrese el numero de celular" value="{{old('celular', $instructor->celular)}}">
                             @error('celular')
                                 <div class="error" role="alert">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="salario" class="form-label">Salario</label>
+                            <label for="salario" class="form-label fw-bold">Salario</label>
                             <input type="text" id="salario" name="salario" class="form-control" placeholder="Ingrese el salario" value="{{old('salario', $instructor->salario)}}">
                             @error('salario')
                                 <div class="error" role="alert">
@@ -78,7 +78,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="anios_experiencia" class="form-label">Años de Experiencia</label>
+                            <label for="anios_experiencia" class="form-label fw-bold">Años de Experiencia</label>
                             <input type="number" class="form-control" id="anios_experiencia" name="anios_experiencia" placeholder="Ingrese los años de experiencia" value="{{old('anios_experiencia', $instructor->anios_experiencia)}}">
                             @error('anios_experiencia')
                                 <div class="error" role="alert">
@@ -89,7 +89,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="grado_instruccion" class="form-label">Grado de Instruccion</label>
+                            <label for="grado_instruccion" class="form-label fw-bold">Grado de Instruccion</label>
                             <select class="form-select" name="grado_instruccion" id="grado_instruccion">
                                 <option value="" disabled selected>-- Seleccione una opcion --</option>
                                 <option value="Técnico" {{ old('grado_instruccion', $instructor->grado_instruccion) == 'Técnico' ? 'selected' : '' }}>Técnico</option>
@@ -102,7 +102,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 mb-3">
-                            <label for="profesion" class="form-label">Profesión</label>
+                            <label for="profesion" class="form-label fw-bold">Profesión</label>
                             <select class="form-select" name="profesion" id="profesion">
                                 <option value="" disabled selected>-- Seleccione una opción --</option>
                                 <option value="Ingeniería de Sistemas" {{ old('profesion', $instructor->profesion) == 'Ingeniería de Sistemas' ? 'selected' : '' }}>Ingeniería de Sistemas</option>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="direccion" class="form-label">Dirección</label>
+                        <label for="direccion" class="form-label fw-bold">Dirección</label>
                         <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese la dirección" value="{{old('direccion', $instructor->direccion)}}">
                         @error('direccion')
                             <div class="error" role="alert">
