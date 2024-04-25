@@ -38,3 +38,4 @@ Route::get('/cursos/matriculas/{id}', [CursoController::class, 'showMatriculas']
 Route::get('/matriculas', [MatriculaController::class, 'index'])->name('matriculas.index');
 Route::get('/matriculas/create', [MatriculaController::class, 'create'])->name('matriculas.create');
 Route::post('/matriculas/store', [MatriculaController::class, 'store'])->name('matriculas.store');
+Route::delete('/matriculas/{id}/delete', [MatriculaController::class, 'destroy'])->name('matriculas.destroy');

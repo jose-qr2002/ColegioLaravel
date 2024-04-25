@@ -48,4 +48,11 @@ class MatriculaController extends Controller
         Matricula::create($request->all());
         return redirect()->route('matriculas.index');
     }
+
+    public function destroy($id) {
+        $matricula = Matricula::findOrFail($id);
+        $matricula->delete();
+
+        return redirect()->route('matriculas.index');
+    }
 }
