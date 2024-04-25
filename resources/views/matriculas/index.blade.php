@@ -20,7 +20,7 @@
     <div class="container">
         <h1 class="text-uppercase fs-1 text-center">Lista de Matriculas</h1>
         <div class="d-sm-flex justify-content-sm-between">
-            <a href="{{ route('matriculas.create') }}" class="mb-2 btn btn-info">Registrar Matricula</a>
+            <a href="{{ route('matriculas.create') }}" class="mb-2 btn btn-info fw-semibold">Registrar Matricula</a>
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-bordered border-danger caption-top" style="">

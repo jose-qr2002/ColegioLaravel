@@ -22,7 +22,7 @@
         <h1 class="fs-1 mt-3 mb-3" style="text-align: center;">Registrar Alumno</h1>
         <div class="card">
             <div class="card-body">
-                <a href="{{ route('alumnos.index') }}" class="btn btn-info btn-sm mb-3"><i class="ri-arrow-left-line"></i> Volver</a>
+                <a href="{{ route('alumnos.index') }}" class="btn btn-info btn-sm mb-3 fw-semibold"><i class="ri-arrow-left-line"></i> Volver</a>
                 <h5 class="card-subtitle mb-2 text-muted fs-6">Llene los campos</h5>
                 <form method="POST" action="{{ route('alumnos.store') }}">
                     @csrf
@@ -54,7 +54,7 @@
                         @enderror
                     </div>
             
-                    <button type="submit" class="btn btn-dark">Guardar</button>
+                    <button type="submit" class="btn btn-dark fw-semibold">Guardar</button>
                 </form>
             </div>
         </div>
