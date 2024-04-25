@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instructor;
+use Exception;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -34,8 +35,16 @@ class InstructorController extends Controller
             'salario' => 'required|numeric',
             'direccion' => 'required'
         ]);
-        Instructor::create($request->all());
-        return redirect()->route('instructores.index');
+
+        try {
+            Instructor::create($request->all());
+            return redirect()->route('instructores.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro registrar al instructor',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 
     public function edit($id) {
@@ -58,25 +67,37 @@ class InstructorController extends Controller
             'salario' => 'required|numeric',
             'direccion' => 'required'
         ]);
-
-        $instructor->update([
-            'nombres' => $request->nombres,
-            'apellidos' => $request->apellidos,
-            'dni' => $request->dni,
-            'celular' => $request->celular,
-            'direccion' => $request->direccion,
-            'titulo' => $request->titulo,
-            'salario' => $request->salario
-        ]);
-
-        return redirect()->route('instructores.index');
+        try {
+            $instructor->update([
+                'nombres' => $request->nombres,
+                'apellidos' => $request->apellidos,
+                'dni' => $request->dni,
+                'celular' => $request->celular,
+                'direccion' => $request->direccion,
+                'titulo' => $request->titulo,
+                'salario' => $request->salario
+            ]);
+            return redirect()->route('instructores.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro actualizar al instructor',
+                'tipo' => 'danger'
+            ]);
+        }
+        
     }
 
     public function destroy($id) {
-        $instructor = Instructor::findOrFail($id);
-        $instructor->delete();
-
-        return redirect()->route('instructores.index');
+        try {
+            $instructor = Instructor::findOrFail($id);
+            $instructor->delete();
+            return redirect()->route('instructores.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro eliminar al instructor',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 
 }

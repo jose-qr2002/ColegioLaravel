@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use Exception;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -30,8 +31,15 @@ class CursoController extends Controller
             'modalidad' => 'required|in:Presencial,Semipresencial,Virtual',
             'ciclo' => 'required|in:I,II,III,IV,V,VI',
         ]);
-        Curso::create($request->all());
-        return redirect()->route('cursos.index');
+        try {
+            Curso::create($request->all());
+            return redirect()->route('cursos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro registrar al curso',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 
     public function edit($id) {
@@ -50,14 +58,30 @@ class CursoController extends Controller
             'modalidad' => 'required|in:Presencial,Semipresencial,Virtual',
             'ciclo' => 'required|in:I,II,III,IV,V,VI',
         ]);
-        $curso->update($request->all());
-        return redirect()->route('cursos.index');
+
+        try {
+            $curso->update($request->all());
+            return redirect()->route('cursos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro actualizar el curso',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 
     public function destroy($id) {
-        $curso = Curso::findOrFail($id);
-        $curso->delete();
-        return redirect()->route('cursos.index');
+        try {
+            $curso = Curso::findOrFail($id);
+            $curso->delete();
+            return redirect()->route('cursos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro eliminar el curso',
+                'tipo' => 'danger'
+            ]);
+        }
+        
     }
 
     public function showMatriculas($id) {

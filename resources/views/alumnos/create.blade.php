@@ -22,6 +22,12 @@
         <h1 class="fs-1 mt-3 mb-3" style="text-align: center;">Registrar Alumno</h1>
         <div class="card bg-info-subtle">
             <div class="card-body">
+                @if (session('mensaje'))
+                    <div class="alert alert-{{session('tipo')}} alert-dismissible fade show" role="alert">
+                        <strong>Mensaje: </strong> {{ session('mensaje') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <a href="{{ route('alumnos.index') }}" class="btn btn-info btn-sm mb-3 fw-semibold"><i class="ri-arrow-left-line"></i> Volver</a>
                 <h5 class="card-subtitle mb-2 text-muted fs-6">Llene los campos</h5>
                 <form method="POST" action="{{ route('alumnos.store') }}">

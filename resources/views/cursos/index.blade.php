@@ -19,6 +19,12 @@
 <div class="contenido-sombra">
     <div class="container">
         <h1 class="text-uppercase fs-1 text-center">Lista de Cursos</h1>
+        @if (session('mensaje'))
+            <div class="alert alert-{{session('tipo')}} alert-dismissible fade show" role="alert">
+                <strong>Mensaje: </strong> {{ session('mensaje') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="d-sm-flex justify-content-sm-between">
             <a href="{{ route('cursos.create') }}" class="mb-2 btn btn-info fw-semibold">Agregar Curso</a>
             <form action="{{ route('cursos.index') }}" method="GET" class="input-group" style="max-width: 300px">

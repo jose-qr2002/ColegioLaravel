@@ -19,6 +19,12 @@
 <div class="contenido-sombra">
     <div class="container">
         <h1 class="text-uppercase fs-1 text-center">Lista de Alumnos</h1>
+        @if (session('mensaje'))
+            <div class="alert alert-{{session('tipo')}} alert-dismissible fade show" role="alert">
+                <strong>Mensaje: </strong> {{ session('mensaje') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="d-sm-flex justify-content-sm-between">
             <a href="{{ route('alumnos.create') }}" class="mb-2 btn btn-info fw-semibold">Registrar Alumno</a>
             <form action="{{ route('alumnos.index') }}" method="GET" class="input-group" style="max-width: 300px">

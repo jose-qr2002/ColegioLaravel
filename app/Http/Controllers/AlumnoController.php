@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumno;
+use Exception;
 
 class AlumnoController extends Controller
 {
@@ -32,8 +33,15 @@ class AlumnoController extends Controller
             'apellidos' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
         ]);
 
-        Alumno::create($request->all());
-        return redirect()->route('alumnos.index');
+        try {
+            Alumno::create($request->all());
+            return redirect()->route('alumnos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro registrar al alumno',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 
     public function edit($id)
@@ -51,28 +59,49 @@ class AlumnoController extends Controller
             'nombres' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
             'apellidos' => 'required|regex:/^[\pL\sáéíóúÁÉÍÓÚüÜ]+$/u',
         ]);
+        
+        try {
+            $alumno->update([
+                'nombres' => $request->nombres,
+                'apellidos' => $request->apellidos,
+                'dni' => $request->dni,
+            ]);
+            return redirect()->route('alumnos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro actualizar al alumno',
+                'tipo' => 'danger'
+            ]);
+        }
 
-        $alumno->update([
-            'nombres' => $request->nombres,
-            'apellidos' => $request->apellidos,
-            'dni' => $request->dni,
-        ]);
-
-        return redirect()->route('alumnos.index');
+        
     }
 
     public function destroy($id) {
-        $alumno = Alumno::findOrFail($id);
-        $alumno->delete();
-
-        return redirect()->route('alumnos.index');
+        try {
+            $alumno = Alumno::findOrFail($id);
+            $alumno->delete();
+            return redirect()->route('alumnos.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se pudo eliminar el registro',
+                'tipo' => 'danger'
+            ]);
+        }
+        
     }
 
     public function showMatriculas($id) {
         $link = 'alumnos';
-        $alumno = Alumno::findOrFail($id);
-        $matriculas = $alumno->matriculas;
-        return view('alumnos.showMatriculas', compact('link', 'alumno', 'matriculas'));
+
+        try {
+            $alumno = Alumno::findOrFail($id);
+            $matriculas = $alumno->matriculas;
+            return view('alumnos.showMatriculas', compact('link', 'alumno', 'matriculas'));
+        } catch (\Exception $e) {
+            
+        }
+        
     }
 
 }

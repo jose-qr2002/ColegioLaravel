@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alumno;
 use App\Models\Curso;
 use App\Models\Matricula;
+use Exception;
 use Illuminate\Http\Request;
 
 class MatriculaController extends Controller
@@ -50,9 +51,15 @@ class MatriculaController extends Controller
     }
 
     public function destroy($id) {
-        $matricula = Matricula::findOrFail($id);
-        $matricula->delete();
-
-        return redirect()->route('matriculas.index');
+        try {
+            $matricula = Matricula::findOrFail($id);
+            $matricula->delete();
+            return redirect()->route('matriculas.index');
+        } catch (Exception $e) {
+            return back()->with([
+                'mensaje' => 'No se logro eliminar la matricula',
+                'tipo' => 'danger'
+            ]);
+        }
     }
 }
