@@ -86,4 +86,28 @@ class AlumnoTest extends TestCase
             ]);
         }// end foreach
     }// end function
+
+    public function test_create_exception():void {
+        $nombre="Jose";
+        for($i=0;$i<255;$i++){
+            $nombre.="Jose";
+        }
+
+        $alumnoData = [
+            'dni'=>'44521761',
+            'nombres' => $nombre,
+            'apellidos' => 'Morales',
+        ];
+
+        $response = $this->post(route('alumnos.store'), $alumnoData);
+        $response->assertStatus(302);
+        $response->assertSessionHas('mensaje');
+        $response->assertSessionHas('tipo', 'danger');
+
+        $this->assertDatabaseMissing('alumnos', [
+            'dni' => $alumnoData['dni'],
+            'nombres' => $alumnoData['nombres'],
+            'apellidos' => $alumnoData['apellidos'],
+        ]);
+    }
 }

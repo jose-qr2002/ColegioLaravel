@@ -128,4 +128,40 @@ class InstructorTest extends TestCase
             ]);
         }// end foreach
     }// end function
+
+    public function test_create_exception():void {
+        $nombre="Juan";
+        for($i=0;$i<255;$i++){
+            $nombre.="Juan";
+        }
+
+        $instructorData = [
+            'dni' => '75463176',
+            'nombres' => $nombre,
+            'apellidos' => 'Perez',
+            'celular' => '945414481',
+            'direccion' => 'Santa Rosa Mz 12 Lt 1',
+            'profesion' => 'Ingeniería de Sistemas',
+            'grado_instruccion' => 'Técnico',
+            'salario' => '2000',
+            'anios_experiencia' => 8
+        ];
+
+        $response = $this->post(route('instructores.store'), $instructorData);
+        $response->assertStatus(302);
+        $response->assertSessionHas('mensaje');
+        $response->assertSessionHas('tipo', 'danger');
+
+        $this->assertDatabaseMissing('instructores', [
+            'dni' => $instructorData['dni'],
+            'nombres' => $instructorData['nombres'],
+            'apellidos' => $instructorData['apellidos'],
+            'celular' => $instructorData['celular'],
+            'direccion' => $instructorData['direccion'],
+            'profesion' => $instructorData['profesion'],
+            'grado_instruccion' => $instructorData['grado_instruccion'],
+            'salario' => $instructorData['salario'],
+            'anios_experiencia' => $instructorData['anios_experiencia'],
+        ]);
+    }
 }

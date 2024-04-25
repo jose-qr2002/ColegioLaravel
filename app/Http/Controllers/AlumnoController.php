@@ -37,7 +37,7 @@ class AlumnoController extends Controller
             Alumno::create($request->all());
             return redirect()->route('alumnos.index');
         } catch (Exception $e) {
-            return back()->with([
+            return redirect()->back()->with([
                 'mensaje' => 'No se logro registrar al alumno',
                 'tipo' => 'danger'
             ]);

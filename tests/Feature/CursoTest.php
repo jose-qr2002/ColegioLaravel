@@ -99,4 +99,32 @@ class CursoTest extends TestCase
             ]);
         }// end foreach
     }// end function
+
+    public function test_create_exception():void {
+        $nombre="Lenguaje";
+        for($i=0;$i<255;$i++){
+            $nombre.="Lenguaje";
+        }
+
+        $cursosData = [
+            'nombre' => $nombre,
+            'codigo' => 'AB459',
+            'modalidad' => 'Presencial',
+            'carrera' => 'Ingeniería de Soporte TI',
+            'ciclo' => 'III'
+        ];
+
+        $response = $this->post(route('cursos.store'), $cursosData);
+        $response->assertStatus(302);
+        $response->assertSessionHas('mensaje');
+        $response->assertSessionHas('tipo', 'danger');
+
+        $this->assertDatabaseMissing('cursos', [
+            'nombre' => $cursosData['nombre'],
+            'codigo' => $cursosData['codigo'],
+            'modalidad' => $cursosData['modalidad'],
+            'carrera' => $cursosData['carrera'],
+            'ciclo' => $cursosData['ciclo']
+        ]);
+    }
 }
