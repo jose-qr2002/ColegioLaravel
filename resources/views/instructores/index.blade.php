@@ -53,11 +53,11 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="table-secondary">
+                <tbody class="table-primary">
                 @forelse($instructores as $instructor)
                     <tr>
-                        <td>{{ $instructor->id }}</td>
-                        <td>{{ $instructor->dni }}</td>
+                        <td class="fw-bold">{{ $instructor->id }}</td>
+                        <td class="text-primary fw-bold">{{ $instructor->dni }}</td>
                         <td>{{ $instructor->nombres }}</td>
                         <td>{{ $instructor->apellidos }}</td>
                         <td>{{ $instructor->profesion }}</td>

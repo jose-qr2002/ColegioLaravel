@@ -36,10 +36,10 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="table-secondary"
+                <tbody class="table-primary"
                 @forelse($matriculas as $matricula)
                     <tr>
-                        <td>{{ $matricula->id }}</td>
+                        <td class="fw-bold">{{ $matricula->id }}</td>
                         <td>{{ $matricula->alumno->nombres . " " . $matricula->alumno->apellidos}}</td>
                         <td>{{ $matricula->curso->nombre }}</td>
                         <td>{{ $matricula->anioAcad }}</td>

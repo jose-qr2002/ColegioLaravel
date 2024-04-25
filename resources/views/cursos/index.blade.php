@@ -52,11 +52,11 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="table-secondary">
+                <tbody class="table-primary">
                 @forelse($cursos as $curso)
                     <tr>
-                        <td>{{ $curso->id }}</td>
-                        <td>{{ $curso->codigo }}</td>
+                        <td class="fw-bold">{{ $curso->id }}</td>
+                        <td class="text-primary fw-bold">{{ $curso->codigo }}</td>
                         <td>{{ $curso->nombre }}</td>
                         <td>{{ $curso->modalidad }}</td>
                         <td>{{ $curso->carrera }}</td>

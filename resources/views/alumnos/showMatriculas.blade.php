@@ -57,7 +57,7 @@
 <div class="contenido-sombra">
     <h1 class="text-center fs-1">Matriculas Registradas</h1>
     <div class="container">
-        <div class="card" style="max-width: 100%;">
+        <div class="card bg-secondary-subtle" style="max-width: 100%;">
             <div class="card-body">
                 <h5 class="card-title">Datos del alumno</h5>
                 <div class="card__grid">
@@ -76,7 +76,7 @@
                 </div>
             </div>  
         </div>
-        <div class="card mt-2 mb-2" style="max-width: 100%;">
+        <div class="card bg-secondary-subtle mt-2 mb-2" style="max-width: 100%;">
             <div class="card-body">
                 <h5 class="card-title">Matriculas del Alumno</h5>
                 @forelse ($matriculas as $matricula)

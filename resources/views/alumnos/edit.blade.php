@@ -20,7 +20,7 @@
 <div class="contenido-sombra">
     <div class="container-form">
         <h1 class="fs-1 mt-3 mb-3" style="text-align: center;">Editar Alumno</h1>
-        <div class="card">
+        <div class="card bg-info-subtle">
             <div class="card-body">
                 <a href="{{ route('alumnos.index') }}" class="btn btn-info btn-sm mb-3 fw-semibold"><i class="ri-arrow-left-line"></i> Volver</a>
                 <h5 class="card-subtitle mb-2 text-muted fs-6">Llene los campos</h5>
