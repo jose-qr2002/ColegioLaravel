@@ -21,6 +21,11 @@ class MatriculaController extends Controller
         $alumnoSeleccionado = null; // Se establece un valor por defecto para pasarlo a la vista
         $cursoSeleccionado = null; // Se establece un valor por defecto para pasarlo a la vista
         // Alumnos
+        $request->validate([
+            'alumnoDni' => 'nullable|exists:alumnos,dni',
+            'cursoCodigo' => 'nullable|exists:cursos,codigo'
+        ]);
+
         if($request->alumnoDni) { // En caso que tenga un request 
             $alumnoSeleccionado = Alumno::where('dni', $request->alumnoDni)->first();
             session(['idAlumno' => $alumnoSeleccionado->id]);
@@ -48,9 +53,9 @@ class MatriculaController extends Controller
         ]);
         try {
             Matricula::create($request->all());
-            return redirect()->route('matriculas.index');
             Session::forget('idAlumno');
             Session::forget('idCurso');
+            return redirect()->route('matriculas.index');
         } catch (Exception $e) {
             return back()->with([
                 'mensaje' => 'No se logro registrar la matricula',

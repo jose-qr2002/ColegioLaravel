@@ -51,7 +51,6 @@
                         <td>{{ $matricula->anioAcad }}</td>
                         <td style="">
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <a class="btn btn-warning" href="{{-- route('instructores.edit', [$instructor->id]) --}}" style="text-decoration: none; font-weight: 700; color: black;">Editar</a>
                                 <button type="button" class="btn btn-danger" style="padding: 0;">
                                     <form action="{{ route('matriculas.destroy', [$matricula->id]) }}" method="POST" style="display: inline;">
                                         @csrf

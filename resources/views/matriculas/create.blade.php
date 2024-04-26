@@ -13,6 +13,9 @@
             margin: 0;
         }
 
+        li > p{
+            margin-bottom: 0
+        }
     </style>    
 @endsection
 
@@ -35,13 +38,28 @@
                         <label for="dni" class="form-label fw-bold">Busque un Alumno</label>
                         <div class="input-group mb-3">
                             <input name="alumnoDni" type="text" class="form-control" placeholder="Buscar por DNI" value="{{ request()->input('alumnoDni') ?? ''}}">
-                            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                            <button class="btn btn-primary" type="submit">Buscar</button>
                         </div>
                         @if (isset($alumnoSeleccionado))
                             <div>
-                                <label>Alumno Seleccionado: </label>
-                                <span>{{ $alumnoSeleccionado->nombres ?? '' }}</span>
+                                <label class="fw-semibold text-primary">Alumno Seleccionado: </label>
+                                <span>{{ $alumnoSeleccionado->nombres ?? '' }} {{ $alumnoSeleccionado->apellidos ?? '' }}</span>
                             </div>
+                            <label class="fw-bold text-primary">Cursos Matriculados del Alumno:</label>
+                            @forelse ($alumnoSeleccionado->matriculas as $matricula)
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-primary d-flex justify-content-between">
+                                        <p>{{ $matricula->curso->nombre }}</p>
+                                        <p>{{ $matricula->anioAcad }}</p>
+                                    </li>
+                                </ul>
+                            @empty
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-warning">
+                                    No registra Matriculas
+                                </li>
+                            </ul>
+                            @endforelse
                         @endif
                         @error('alumnoDni')
                             <div class="error" role="alert">
@@ -53,13 +71,28 @@
                         <label for="dni" class="form-label fw-bold">Busque un Curso</label>
                         <div class="input-group mb-3">
                             <input name="cursoCodigo" type="text" class="form-control" placeholder="Buscar por Codigo" value="{{ request()->input('cursoCodigo') ?? ''}}">
-                            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                            <button class="btn btn-primary" type="submit">Buscar</button>
                         </div>
                         @if (isset($cursoSeleccionado))
                             <div>
                                 <label>Curso Seleccionado: </label>
                                 <span>{{ $cursoSeleccionado->nombre ?? '' }}</span>
                             </div>
+                            <label class="fw-bold text-primary">Alumnos Matriculados en el Curso:</label>
+                            @forelse ($cursoSeleccionado->matriculas as $matricula)
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-primary d-flex justify-content-between">
+                                        <p>{{ $matricula->alumno->nombres }}</p>
+                                        <p>{{ $matricula->anioAcad }}</p>
+                                    </li>
+                                </ul>
+                            @empty
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-warning">
+                                    No registra Matriculas
+                                </li>
+                            </ul>
+                            @endforelse
                         @endif
                         @error('cursoCodigo')
                             <div class="error" role="alert">
